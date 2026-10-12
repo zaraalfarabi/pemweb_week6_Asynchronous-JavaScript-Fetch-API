@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Tracker Kuliah v2</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="profil">
+
+        <img src="https://i.pinimg.com/736x/5b/f6/77/5bf677b52de3c6581539f55a636ab7a7.jpg"
+            alt="Minji anggota Girl Group yang bernama Newjeans">
+
+        <div class="taskimg">
+            <img src="assets/Task Tracker.svg" alt="task traker">
+        </div>
+
+        <div class="minjiimg">
+            <img src="assets/minjiit.svg" alt="minji it">
+        </div>
+
+        <div class="task-container">
+
+            <h3 class="task-heading">My Task!</h3>
+            <p class="version-tag">v2 · REST API</p>
+
+            <form id="taskForm" novalidate>
+
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="Judul tugas (min. 3 karakter)" autocomplete="off">
+                </div>
+
+                <div class="task-detail">
+
+                    <!-- Opsi diisi dari GET /api/matkul -->
+                    <select id="categorySelect" disabled>
+                        <option value="">Memuat mata kuliah…</option>
+                    </select>
+
+                    <input type="date" id="deadlineInput">
+
+                </div>
+
+                <button type="submit" id="addBtn" class="add-btn" disabled>
+                    Tambah
+                </button>
+
+                <p id="errorMessage" class="error-message" role="alert"></p>
+
+            </form>
+
+            <div class="search-group">
+                <input type="search" id="searchInput" placeholder="🔍 Cari judul atau mata kuliah…" autocomplete="off">
+            </div>
+
+            <div class="filter-section">
+
+                <button type="button" class="filter-btn active" data-filter="all">
+                    Semua
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="active">
+                    Aktif
+                </button>
+
+                <button type="button" class="filter-btn" data-filter="completed">
+                    Selesai
+                </button>
+
+                <span id="taskCounter"></span>
+
+            </div>
+
+            <p id="statusInfo" class="status-info" aria-live="polite"></p>
+
+            <ul id="taskList" class="task-list"></ul>
+
+        </div>
+
+        <div id="netPanel" class="net-panel">
+            <span>Simulasi jaringan:</span>
+            <button type="button" data-mode="normal" class="active">Normal</button>
+            <button type="button" data-mode="lambat">Lambat</button>
+            <button type="button" data-mode="tidakstabil">Tidak stabil</button>
+            <button type="button" data-mode="offline">Offline</button>
+            <button type="button" data-mode="error500">Server 500</button>
+        </div>
+
+    </div>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <script>window.__API_CONFIG = { persist: true };</script>
+    <script src="https://fuaddary.github.io/Pemrograman-Web/assets/mock-api-kampus.js"></script>
+    <script src="app.js" defer></script>
+
+</body>
+
+</html>
+
+<!-- link AI: https://claude.ai/share/eabab392-7c6a-454f-9c9c-22af729b6ad7-->
